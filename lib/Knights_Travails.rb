@@ -1,7 +1,8 @@
-require_relative "00_tree_node"
+require_relative "00_tree_node.rb"
+require 'byebug'
 
 class KnightsTravails
-  # attr_reader :start_pos, :board
+  attr_reader :start_pos, :board
   
   def initialize(start_pos)
     @start_pos = start_pos
@@ -24,8 +25,41 @@ class KnightsTravails
   end
   
   def new_move_positions(pos)
-    self.valid_moves(pos)
+    moves = KnightsTravails.valid_moves(pos)
+    moves.reject! {|move| @visited_positions.include?(move)}
+    @visited_positions += moves
+    moves
   end
+    
+  def build_move_tree
+    root = PolyTreeNode.new(self.start_pos)
+
+    queue = [root]
+    
+    until queue.empty?
+      #pop node from queue
+      current = queue.shift  
+      
+      child_vals = new_move_positions(current.value)
+      child_nodes = child_vals.map { |val| PolyTreeNode.new(val)}
+      # Create child nodes and make recently shifted node the parent
+      child_nodes.each do |node| 
+        node.parent = current
+      end
+      queue.concat(child_nodes)
+      #add children to queue UNLESS alr in queue (moves are already visited)
+      #repeat for the kids, without visiting same positions again
+    end 
+    
+    root
+  end
+  
+  # def inspect
+  #   self.children.each do |el|
+  # 
+  #   end
+  #   "#{self.children}"
+  # end
   
   private 
   
