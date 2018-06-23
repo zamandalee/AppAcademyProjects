@@ -42,24 +42,31 @@ class KnightsTravails
       
       child_vals = new_move_positions(current.value)
       child_nodes = child_vals.map { |val| PolyTreeNode.new(val)}
-      # Create child nodes and make recently shifted node the parent
+      
       child_nodes.each do |node| 
-        node.parent = current
+        node.parent = current #.parent= already checks for repeats
       end
       queue.concat(child_nodes)
-      #add children to queue UNLESS alr in queue (moves are already visited)
-      #repeat for the kids, without visiting same positions again
     end 
     
     root
   end
   
-  # def inspect
-  #   self.children.each do |el|
+  def find_path(end_pos)
+    tree = self.build_move_tree
+    found = tree.bfs(end_pos)
+    trace_path_back(found)
+  end
+  
   # 
-  #   end
-  #   "#{self.children}"
-  # end
+  def trace_path_back(node)
+    path = [] 
+    while node != nil
+      path.unshift(node.value)
+      node = node.parent
+    end
+    path
+  end
   
   private 
   
