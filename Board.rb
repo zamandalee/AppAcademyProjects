@@ -1,6 +1,6 @@
 require_relative "Piece"
-
 class Board
+  
   def default(board)
     board.each_with_index do |row, idx|
       next if idx > 1 && idx < 6
@@ -24,8 +24,8 @@ class Board
   end
   
   def valid_pos?(position)
-    return false if position.first < 8 && position.last < 8
-    return true
+    return true if position.first.between?(0,7) && position.last.between?(0,7)
+    return false
   end
   
   def [](pos)
@@ -46,4 +46,3 @@ class Board
 end
 
 test = Board.new
-
