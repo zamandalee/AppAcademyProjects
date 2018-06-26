@@ -23,6 +23,11 @@ class Board
     self[end_pos], self[start_pos] = self[start_pos], self[end_pos] 
   end
   
+  def valid_pos?(position)
+    return false if position.first < 8 && position.last < 8
+    return true
+  end
+  
   def [](pos)
     row, col = pos
     @grid[row][col]
