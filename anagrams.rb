@@ -1,12 +1,12 @@
 require 'byebug'
 
 
-def first_anagram?(str1, str2) #factorial, O(n!)
+def first_anagram?(str1, str2) #factorial, O(n!) time complexity
   anagrams = str1.chars.permutation.to_a
   anagrams.include?(str2.chars)
 end
 
-def second_anagram?(str1, str2) #n^2 (double iteration)
+def second_anagram?(str1, str2) #O(n^3) (each, include?, delete)
   arr1 = str1.chars
   arr2 = str2.chars
   
@@ -21,11 +21,11 @@ def second_anagram?(str1, str2) #n^2 (double iteration)
 end 
 
 
-def third_anagram?(str1, str2) #n^2 (quicksort)
+def third_anagram?(str1, str2) #O(n log n) (quicksort)
   return str1.chars.sort == str2.chars.sort
 end 
 
-def fourth_anagram?(str1, str2) #n (n + n + n)
+def fourth_anagram?(str1, str2) #O(n) (n + n + n)
   h1 = Hash.new(0)
   h2 = Hash.new(0)
   
@@ -37,5 +37,5 @@ def fourth_anagram?(str1, str2) #n (n + n + n)
     h2[char] += 1
   end
   
-  return h1 == h2
+  return h1 == h2 #O(n) space complexity
 end
