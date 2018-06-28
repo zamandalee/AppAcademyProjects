@@ -42,18 +42,19 @@ def bad_cont_sub_sum(arr) #quadratic, O(n^2)
 end 
 
 def cont_sub_sum(arr)
-  largest = arr.first
+  current = 0
+  largest = 0
   
-  arr.each_with_index do |el, idx|
-    idx2 = idx
-    while idx2 < arr.length
-      current_sum = arr[idx..idx2].reduce(:+)
-      largest = current_sum if current_sum > largest
-      idx2 += 1
-    end 
+  arr.each do |num|
+    if current + num < 0
+      current = 0
+      next
+    end
+    current += num
+    largest = current if current > largest
   end
   
-  largest
+  return largest
 end
 
 
