@@ -49,7 +49,7 @@ class LinkedList
 
   def get(key)
     return nil unless include?(key)
-
+    
     each do |node|
       return node.val if node.key == key
     end
@@ -57,6 +57,8 @@ class LinkedList
   end
 
   def include?(key)
+    return false if empty?
+    
     each do |node|
       return true if node.key == key
     end
@@ -89,7 +91,7 @@ class LinkedList
   end
 
   def each(&prc)
-    current_node = first
+    current_node = @head.next
     
     until current_node == @tail
       prc.call(current_node)
