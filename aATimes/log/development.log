@@ -65,3 +65,5 @@ Completed 200 OK in 171ms (Views: 146.5ms | ActiveRecord: 0.0ms)
 Started GET "/assets/application.self-c013fe7191f0b71b1131909fabe6c81c37cd22c1bec6b844fd2efd9f147166d4.css?body=1" for ::1 at 2018-07-16 11:33:01 -0700
 Started GET "/assets/application.self-c013fe7191f0b71b1131909fabe6c81c37cd22c1bec6b844fd2efd9f147166d4.css?body=1&livereload=1531766135275" for ::1 at 2018-07-16 11:35:35 -0700
 Started GET "/assets/application.self-c013fe7191f0b71b1131909fabe6c81c37cd22c1bec6b844fd2efd9f147166d4.css?body=1&livereload=1531766135277" for ::1 at 2018-07-16 11:35:35 -0700
+Started GET "/assets/application.self-c013fe7191f0b71b1131909fabe6c81c37cd22c1bec6b844fd2efd9f147166d4.css?body=1&livereload=1531766492297" for ::1 at 2018-07-16 11:41:32 -0700
+Started GET "/assets/application.self-c013fe7191f0b71b1131909fabe6c81c37cd22c1bec6b844fd2efd9f147166d4.css?body=1&livereload=1531766492296" for ::1 at 2018-07-16 11:41:32 -0700
