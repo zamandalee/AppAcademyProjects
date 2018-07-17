@@ -12,9 +12,14 @@
 
 class Sub < ApplicationRecord
   validates :title, :description, presence: true
-  
-  has_many :posts, dependent: :destroy
+
   belongs_to :moderator,
     foreign_key: :user_id,
     class_name: :User
+
+  has_many :post_subs
+  has_many :posts,
+    through: :post_subs,
+    source: :post,
+    dependent: :destroy
 end
