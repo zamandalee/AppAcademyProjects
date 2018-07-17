@@ -1,0 +1,20 @@
+.section-nav {
+	display: flex;
+  // position: fixed;
+  // justify-content: center;
+	font-family: $sans-serif;
+	font-size: 11px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+  justify-content: space-around;
+}
+
+.section-nav li {
+	margin-left: 10px;
+	// border-right: 1px solid $light-gray;
+}
+
+.section-nav a:hover {
+  background-color: $light-gray;
+  text-decoration: none;
+}
