@@ -19,9 +19,9 @@ class Post < ApplicationRecord
     class_name: :User
 
   has_many :post_subs, inverse_of: :post
+  has_many :comments
   has_many :subs,
     through: :post_subs,
     source: :sub
-
   # validates :subs, length: { :minimum => 1 }
 end
