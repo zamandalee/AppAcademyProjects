@@ -15,6 +15,7 @@ class Clock {
     console.log(currentTime);
   }
 
+  // _ tells user that method is used by other functions
   _tick() {
     this.seconds += 1;
     
