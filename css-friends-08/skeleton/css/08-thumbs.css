@@ -1,1 +1,19 @@
 /* PHASE 8: Thumbs */
+.group li {
+  float: left;
+  width:25%;
+  height:25%;
+  margin: 5px;
+}
+.group img {
+  height:100%;
+  width:100%;
+}
+
+.group a {
+  display: none;
+}
+
+.group li:hover a {
+  display:block;
+}
