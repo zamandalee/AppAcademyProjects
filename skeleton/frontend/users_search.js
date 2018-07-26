@@ -1,4 +1,5 @@
 const APIUtil = require('./api_util.js');
+const FollowToggle = require('./follow_toggle.js');
 
 class UsersSearch {
   constructor(el) {
@@ -19,9 +20,18 @@ class UsersSearch {
   
   renderResults(searchResults) {
     this.$ul.empty(); 
-    
-    $(searchResults).each( (idx, result) => {
-      this.$ul.append(`<li><a href='/users/${result.id}'>${result.username}</a></li>`); //erb tag, ticks vs quotes
+    console.log(searchResults);
+    $(searchResults).each( (idx, user) => {
+      this.$ul.append(`<li><a href='/users/${user.id}'>${user.username}</a></li>`); 
+      
+      let difs = "unfollowed";
+      if (user.followed) {
+        difs = "followed";
+      }
+      this.$ul.append(`<button class="follow-toggle" data-user-id="${user.id}" data-initial-follow-state="${difs}" type="button" name="button"></button>`);
+      
+      let $button = $(`[data-user-id='${user.id}']`);
+      new FollowToggle($button);
     });
   }
 }
