@@ -1,0 +1,21 @@
+body {
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-family: Open Sans;
+}
+
+.clock-contents {
+  border: 2px solid black;
+  padding: 20px;
+  font-family: Orbitron;
+  font-size: 20px;
+  color: white;
+  background-color: orange;
+}
+
+.clock-title {
+  display: flex;
+  justify-content: space-between;
+}
