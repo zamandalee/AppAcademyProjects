@@ -5,7 +5,7 @@ const App = () => {
     <div>
       <h1>Sweet Todo List</h1>
       <TodoListContainer />
-      
+
     </div>
   );
 };
