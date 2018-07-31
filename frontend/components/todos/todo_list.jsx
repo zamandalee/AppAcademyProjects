@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TodoListItem from './todo_list_item.jsx'
 
 const TodoList = ({todos, receiveTodo}) => {
   return (
     <div>
       <ul>
-        {/* fix key issue!! */}
-        {todos.map((todo, idx) => <li key={idx}>{todo.title}</li>)}
+        {todos.map((todo, idx) => <TodoListItem todo={todo} key={idx}/>)}
       </ul>
     </div>
   );
