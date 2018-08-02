@@ -1,13 +1,9 @@
 //mounts, renders (w empty state), componnentDM, AJAX call to retrieve data, .then triggers action, reducer updates store, container mSTP new state to props, new props trigger rerender w/ new data
 
 import React from 'react';
+import PokemonIndexItem from './pokemon_index_item';
 
-const Pokemon = (props) => (
-  <li className="pokemon">
-    <img src={props.poke.image_url}></img>
-    {props.poke.name}
-  </li>
-);
+// const pokemonItems = this.props.
 
 class PokemonIndex extends React.Component {
   constructor(props) {
@@ -21,11 +17,11 @@ class PokemonIndex extends React.Component {
   render() {
     const { pokemon }= this.props;
     return (
-      <ul>
-        {pokemon.map( poke => (
-          <Pokemon poke={poke} key={poke.id}/>
-        ))}
-      </ul>
+      <section className="pokedex">
+        <ul>
+          {pokemon.map(poke => <PokemonIndexItem key={poke.id} pokemon={poke} />)}
+        </ul>
+      </section>
     );
   }
 }
