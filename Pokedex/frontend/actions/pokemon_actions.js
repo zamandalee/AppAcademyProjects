@@ -12,3 +12,16 @@ export const receiveAllPokemon = pokemon => ({
   type: RECEIVE_ALL_POKEMON,
   pokemon
 });
+
+
+export const RECEIVE_POKEMON_DETAIL = 'RECEIVE_POKEMON_DETAIL';
+
+export const requestSinglePokemon = (pokemonId) => (dispatch) => (
+  APIUtil.fetchPokemonDetail(pokemonId)
+    .then(payload => dispatch(receivePokemonDetail(payload)))
+);
+
+export const receivePokemonDetail = payload => ({
+  type: RECEIVE_POKEMON_DETAIL,
+  payload
+});
