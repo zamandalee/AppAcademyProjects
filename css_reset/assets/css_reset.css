@@ -1,0 +1,30 @@
+html, body, section, article, h1, h2, p {
+  margin:0;
+  padding: 0;
+  border: 0;  
+  font: inherit;
+}
+
+body {
+  line-height: 1.5;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+ul.ingredients-list {
+  list-style: none;
+}
+
+ol li {
+  list-style: none;
+}
+
+header > img { 
+  width: inherit;
+}
+
+figure > img { 
+  width: inherit;
+}
